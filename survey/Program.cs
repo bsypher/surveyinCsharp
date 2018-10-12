@@ -6,53 +6,33 @@ namespace survey
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("What is the student's name?");
-            var name = Tryagain();
-            
+            Console.WriteLine("What is the class size?");
+            var studentAmount = int.Parse(Console.ReadLine());
+            var studentName = new string[studentAmount];
+            var studentGrade = new int[studentAmount];
 
-                
 
-            
-            Console.WriteLine("What is their grade");
-            var grade = Tryagain();
-             
-
-               
-            
-
-            var studentGrades = new int[] { };
-
-            foreach (var studentGrade in studentGrades)
+            for (int i = 0; i < studentAmount; i++)
             {
-                Console.Write(studentGrades);
+                Console.Write("What is the student's name?");
+                studentName[i] = Console.ReadLine();
+
+                Console.Write("What is the student's grade?");
+                studentGrade[i] = int.Parse(Console.ReadLine());
+
+
             }
 
-
-
-            Console.WriteLine("Their name is: {0} and their grade is {1}", name, grade);
-          
-
-
-        }
-        static string Tryagain()
-        {
-            var answer = Console.ReadLine();
-            if (answer == "")
-
+            for (int i = 0; i < studentAmount; i++)
             {
-                Console.WriteLine("Enter the the requested data!");
-                return Console.ReadLine();
-            }
-            
-            else if ( answer == "quit")
-            {
-                Console.WriteLine("Take care lad");
-                return Console.ReadLine();
-            }
-            else if ((answer !="quit") && (answer!= ""))
-            {
+                Console.WriteLine("Their name is: {0} and their grade is {1}", studentName[i], studentGrade[i]);
+
+
 
             }
         }
     }
+
 }
+
+    

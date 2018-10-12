@@ -43,13 +43,16 @@ namespace survey
                 Console.WriteLine("Enter the the requested data!");
                 return Console.ReadLine();
             }
-            return answer;
+            
             else if ( answer == "quit")
             {
                 Console.WriteLine("Take care lad");
                 return Console.ReadLine();
             }
-            
+            else if ((answer !="quit") && (answer!= ""))
+            {
+
+            }
         }
     }
 }

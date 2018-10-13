@@ -1,38 +1,43 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace survey
 {
     class Program
     {
+        private static int studentAmount;
+
         static void Main(string[] args)
         {
-            Console.WriteLine("What is the class size?");
-            var studentAmount = int.Parse(Console.ReadLine());
-            var studentName = new string[studentAmount];
-            var studentGrade = new int[studentAmount];
+            
+            var studentName = new List<string>();
+            var studentGrade = new List<int>();
 
+            var adding = true;
 
-            for (int i = 0; i < studentAmount; i++)
+            while (adding)
+
             {
                 Console.Write("What is the student's name?");
-                studentName[i] = Console.ReadLine();
+                studentName.Add(Console.ReadLine());
 
                 Console.Write("What is the student's grade?");
-                studentGrade[i] = int.Parse(Console.ReadLine());
+                studentGrade.Add(int.Parse(Console.ReadLine()));
 
+                Console.WriteLine("Add another? n/y");
 
+                if (Console.ReadLine() != "y")
+                    adding = false;
             }
 
-            for (int i = 0; i < studentAmount; i++)
+            for (int i = 0; i < studentName.Count; i++)
             {
-                Console.WriteLine("Their name is: {0} and their grade is {1}", studentName[i], studentGrade[i]);
+                Console.WriteLine("Their name is {0} and their grade is {1}", studentName[i], studentGrade[i]);
 
 
 
             }
         }
+
+
     }
-
 }
-
-    

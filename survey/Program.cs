@@ -4,34 +4,41 @@ namespace survey
 {
     class Program
     {
-        private static int studentAmount;
+       
 
         static void Main(string[] args)
         {
-            
-            var studentName = new List<string>();
-            var studentGrade = new List<int>();
+            var students = new List<Student>();
+
+           
 
             var adding = true;
 
             while (adding)
 
             {
-                Console.Write("What is the student's name?");
-                studentName.Add(Console.ReadLine());
+                var newStudent = new Student();
 
-                Console.Write("What is the student's grade?");
-                studentGrade.Add(int.Parse(Console.ReadLine()));
+                Console.Write("Student Name: ");
+                newStudent.Name = Console.ReadLine();
+
+                Console.Write("Student Grade: ");
+                newStudent.Grade = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Add another? n/y");
+
+                students.Add(newStudent);
+                Student.Count++;
+                Console.WriteLine("Student Count: {0}", Student.Count);
 
                 if (Console.ReadLine() != "y")
                     adding = false;
             }
 
-            for (int i = 0; i < studentName.Count; i++)
+            foreach (var student in students)
+            
             {
-                Console.WriteLine("Their name is {0} and their grade is {1}", studentName[i], studentGrade[i]);
+                Console.WriteLine("Their name is {0} and their grade is {1}", student.Name, student.Grade);
 
 
 
@@ -41,3 +48,13 @@ namespace survey
 
     }
 }
+
+    class Student
+    {
+    static public int Count;
+
+    public string Name;
+    public int Grade;
+    
+
+    }
